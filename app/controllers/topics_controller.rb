@@ -25,7 +25,7 @@ class TopicsController < ApplicationController
 
   def search
     relation = Topic.includes(:comments)
-    @topics = relation.where("title LIKE?", "%#{params[:keyword]}%").references(:comments).or(relation.where("text LIKE?", "%#{params[:keyword]}%"))
+    @topics = relation.where("title LIKE?", "%#{params[:keyword]}%").references(:comments).or(relation.where("text LIKE?", "%#{params[:keyword]}%")).order(created_at: :desc)
     @categories = Category.all
   end
 
