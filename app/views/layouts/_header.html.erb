@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-primary shadow-sm border-bottom">
+  <div class="container-fluid justify-content-around">
+    <div class="navbar-header">
+      <%= link_to "スレッド一覧", root_path, class: "text-white" %>
+    </div>
+    <div class="navbar-header">
+      <h3 class="text-white">8ch</h3>
+    </div>
+    <div class="form-inline my-2 muy-lg-0">
+      <%= form_with(url:search_topics_path, method: :get, local: true) do |f|%>
+        <%= f.text_field :keyword, placeholder: "スレッドを検索", class: "form-control" %>
+        <%= f.submit '検索', class: "btn btn-light" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
